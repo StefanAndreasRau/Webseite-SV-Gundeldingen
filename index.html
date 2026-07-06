@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Schachverein Gundeldingen Basel – Spielbetrieb jeden Montag, Turniere, News und Schachaufgaben im Gundeli.">
+  <title>Schachverein Gundeldingen Basel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            gold: { 300: '#D4B978', 400: '#C9A962', 500: '#B8943F', 600: '#9A7B32' },
+            forest: { DEFAULT: '#2D6A4F', light: '#40916C' },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-padding-top: 5.5rem; }
+    @media (min-width: 1024px) { html { scroll-padding-top: 6.5rem; } }
+    .section-light { background-color: #ffffff; color: #57534e; }
+    .section-dark { background-color: #0c0a09; color: #d6d3d1; }
+    .section-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; }
+    .section-light .section-label { color: #9A7B32; }
+    .section-dark .section-label { color: #C9A962; }
+    .section-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.875rem; font-weight: 500; }
+    @media (min-width: 640px) { .section-title { font-size: 2.25rem; } }
+    .section-light .section-title { color: #1c1917; }
+    .section-dark .section-title { color: #ffffff; }
+    .section-sub { font-size: 0.875rem; margin-top: 0.25rem; }
+    .section-light .section-sub { color: #78716c; }
+    .section-dark .section-sub { color: #a8a29e; }
+    .tile { border-radius: 1rem; border: 1px solid; }
+    .section-light .tile { background: #fafaf9; border-color: #e7e5e4; box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+    .section-dark .tile { background: rgba(41,37,36,0.55); border-color: rgba(255,255,255,0.12); box-shadow: 0 8px 30px rgba(0,0,0,0.35); }
+    .card { border-radius: 0.75rem; border: 1px solid; }
+    .section-light .card { background: #fff; border-color: #e7e5e4; }
+    .section-dark .card { background: rgba(12,10,9,0.65); border-color: rgba(255,255,255,0.12); }
+    .section-light .ext-link { color: #9A7B32; }
+    .section-light .ext-link:hover { color: #B8943F; }
+    .section-dark .ext-link { color: #C9A962; }
+    .section-dark .ext-link:hover { color: #D4B978; }
+    .ext-link { text-decoration: underline; text-underline-offset: 2px; transition: color 0.15s; }
+    #links-dropdown .ext-link { color: #9A7B32; }
+    #links-dropdown .ext-link:hover { color: #B8943F; }
+    .section-light .text-muted { color: #57534e; }
+    .section-dark .text-muted { color: #a8a29e; }
+    .section-light .text-strong { color: #1c1917; }
+    .section-dark .text-strong { color: #fafaf9; }
+    .section-light .text-faint { color: #78716c; }
+    .section-dark .text-faint { color: #78716c; }
+    .badge-pill { display: inline-flex; padding: 0.25rem 0.75rem; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 9999px; border: 1px solid; }
+    .section-light .badge-pill { border-color: #d6d3d1; color: #78716c; background: #f5f5f4; }
+    .section-dark .badge-pill { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+    .section-light .tab-btn { border: 1px solid #d6d3d1; color: #57534e; border-radius: 9999px; transition: all 0.15s; }
+    .section-light .tab-btn:hover { border-color: #B8943F; color: #9A7B32; }
+    .section-light .tab-btn-active { background: rgba(184,148,63,0.15); color: #9A7B32; border-color: #B8943F; }
+    .section-dark .tab-btn { border: 1px solid rgba(255,255,255,0.15); color: #a8a29e; border-radius: 9999px; transition: all 0.15s; }
+    .section-dark .tab-btn:hover { border-color: rgba(201,169,98,0.4); color: #C9A962; }
+    .section-dark .tab-btn-active { background: rgba(184,148,63,0.2); color: #C9A962; border-color: rgba(201,169,98,0.4); }
+    .section-light .btn-ghost { color: #57534e; border: 1px solid #d6d3d1; border-radius: 0.5rem; }
+    .section-light .btn-ghost:hover { background: #f5f5f4; }
+    .section-dark .btn-ghost { color: #d6d3d1; border: 1px solid rgba(255,255,255,0.2); border-radius: 0.5rem; }
+    .section-dark .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+    .section-light .table-head { background: #f5f5f4; color: #78716c; }
+    .section-dark .table-head { background: rgba(255,255,255,0.05); color: #a8a29e; }
+    .section-light .table-row { border-color: #e7e5e4; color: #44403c; }
+    .section-dark .table-row { border-color: rgba(255,255,255,0.1); color: #d6d3d1; }
+    .nav-item {
+      padding: 0.5rem 0.625rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #44403c;
+      border-radius: 0.5rem;
+      white-space: nowrap;
+      transition: color 0.15s, background-color 0.15s;
+    }
+    .nav-item:hover { color: #1c1917; background-color: #f5f5f4; }
+    @media (min-width: 1280px) { .nav-item { padding-left: 0.75rem; padding-right: 0.75rem; } }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    #links-dropdown:not(.hidden) { animation: fadeIn 0.15s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+    @media print { header, .no-print { display: none !important; } body { background: white !important; color: black !important; } .card, .tile { border: 1px solid #ccc !important; background: white !important; } }
+    .hero-bg-image {
+      background-image: url('hero-chess.jpg');
+      background-size: cover;
+      background-position: 72% 45%;
+      transform: scale(1.06);
+    }
+    .hero-bg-overlay {
+      background:
+        linear-gradient(to right, rgba(12, 10, 9, 0.92) 0%, rgba(12, 10, 9, 0.72) 28%, rgba(12, 10, 9, 0.35) 58%, rgba(12, 10, 9, 0.12) 100%),
+        linear-gradient(to top, rgba(12, 10, 9, 0.55) 0%, rgba(12, 10, 9, 0.08) 45%, rgba(12, 10, 9, 0.35) 100%);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- Header -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-stone-200 shadow-sm">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 lg:h-24">
+        <a href="#" class="flex items-center gap-3 sm:gap-4 shrink-0 group min-w-0">
+          <img src="signet.gif" alt="SV Gundeldingen Basel" class="h-14 sm:h-16 lg:h-[4.5rem] w-auto object-contain shrink-0">
+          <div class="leading-tight hidden lg:block min-w-0">
+            <span class="block text-sm lg:text-base xl:text-lg font-semibold text-stone-900 group-hover:text-gold-600 transition-colors truncate">Schachverein Gundeldingen</span>
+            <span class="block text-xs text-stone-600 tracking-widest uppercase font-medium">Basel</span>
+          </div>
+        </a>
+
+        <ul class="hidden lg:flex items-center gap-3 xl:gap-4">
+          <li><a href="#news" class="nav-item">News</a></li>
+          <li><a href="#verein" class="nav-item">Verein</a></li>
+          <li><a href="#agenda" class="nav-item">Agenda</a></li>
+          <li><a href="#turniere" class="nav-item">Turniere</a></li>
+          <li><a href="#schachaufgabe" class="nav-item">Schachaufgabe</a></li>
+          <li><a href="#jugend" class="nav-item">Jugend</a></li>
+          <li class="relative" id="links-nav-wrap">
+            <button type="button" id="links-dropdown-btn" class="nav-item flex items-center gap-1" aria-expanded="false" aria-haspopup="true">
+              Links
+              <svg class="w-3.5 h-3.5 transition-transform" id="links-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="links-dropdown" class="hidden absolute right-0 top-full mt-1 w-[min(90vw,520px)] bg-white rounded-xl border border-stone-200 shadow-xl p-5 max-h-[70vh] overflow-y-auto">
+              <div class="grid sm:grid-cols-2 gap-5 text-sm">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wider text-gold-600 mb-2">Schachverbände</p>
+                  <ul class="space-y-1.5 text-stone-600">
+                    <li><a href="https://www.schach-nsv.ch" target="_blank" rel="noopener" class="ext-link">NSV Nordwestschweiz</a></li>
+                    <li><a href="https://www.schach-nsv.ch/veranstaltungen/" target="_blank" rel="noopener" class="ext-link">NSV Veranstaltungen</a></li>
+                    <li><a href="https://www.swisschess.ch/" target="_blank" rel="noopener" class="ext-link">Schweizer Schachbund</a></li>
+                    <li><a href="https://www.schach-nsv.ch/junioren/" target="_blank" rel="noopener" class="ext-link">Jugendschach NW</a></li>
+                    <li><a href="https://www.jugendschachschweiz.ch/" target="_blank" rel="noopener" class="ext-link">Jugendschach Schweiz</a></li>
+                    <li><a href="https://dieschulschachprofis.ch/" target="_blank" rel="noopener" class="ext-link">Schulschachprofis</a></li>
+                    <li><a href="http://www.fide.com" target="_blank" rel="noopener" class="ext-link">FIDE</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wider text-gold-600 mb-2">Basler Vereine</p>
+                  <ul class="space-y-1.5 text-stone-600">
+                    <li><a href="http://www.sctherwil.ch" target="_blank" rel="noopener" class="ext-link">SC Therwil</a></li>
+                    <li><a href="http://www.sgriehen.ch" target="_blank" rel="noopener" class="ext-link">SG Riehen</a></li>
+                    <li><a href="https://truemmerfeld-basel.ch/" target="_blank" rel="noopener" class="ext-link">Trümmerfeld</a></li>
+                    <li><a href="https://www.skbirseck.eu.org/" target="_blank" rel="noopener" class="ext-link">SK Birseck</a></li>
+                    <li><a href="https://samby.ch/" target="_blank" rel="noopener" class="ext-link">SAMBY</a></li>
+                    <li><a href="https://schachfestivalbasel.ch/basel-sg/" target="_blank" rel="noopener" class="ext-link">Basler SG</a></li>
+                    <li><a href="http://www.novartis-sport.ch/index.php/de/schach" target="_blank" rel="noopener" class="ext-link">Novartis SC</a></li>
+                    <li><a href="http://www.schachbirsfelden.ch/" target="_blank" rel="noopener" class="ext-link">SV Birsfelden</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wider text-gold-600 mb-2">Online &amp; Lernen</p>
+                  <ul class="space-y-1.5 text-stone-600">
+                    <li><a href="https://lichess.org/team/team-gundeldingen-basel" target="_blank" rel="noopener" class="ext-link">Lichess Team</a></li>
+                    <li><a href="https://lichess.org/learn#/" target="_blank" rel="noopener" class="ext-link">Schach lernen</a></li>
+                    <li><a href="https://fritz.chessbase.com/de/Fritz" target="_blank" rel="noopener" class="ext-link">Fritz spielen</a></li>
+                    <li><a href="https://chessline.io/" target="_blank" rel="noopener" class="ext-link">Chessline AI</a></li>
+                    <li><a href="http://www.euroschach.de/" target="_blank" rel="noopener" class="ext-link">Euroschach</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-wider text-gold-600 mb-2">Tools &amp; Region</p>
+                  <ul class="space-y-1.5 text-stone-600">
+                    <li><a href="http://www.swiss-chess.de" target="_blank" rel="noopener" class="ext-link">Swiss-Chess</a></li>
+                    <li><a href="http://www.schachbund.ch/schachhobby/chessclubs.php" target="_blank" rel="noopener" class="ext-link">Weitere Clubs</a></li>
+                    <li><a href="http://www.badischer-schachverband.de" target="_blank" rel="noopener" class="ext-link">Badischer SV</a></li>
+                    <li><a href="http://schachbund.de" target="_blank" rel="noopener" class="ext-link">Deutscher Schachbund</a></li>
+                    <li><a href="#jugend" class="ext-link">Schachkurs (intern)</a></li>
+                    <li><a href="https://www.haller-mtl.de/Gaestebuch/Gb?temp_fileName=704045&type=ENTRY" target="_blank" rel="noopener" class="ext-link">Gästebuch</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="ml-2 xl:ml-3"><a href="#kontakt" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-forest rounded-lg hover:bg-forest-light transition-colors whitespace-nowrap">Kontakt</a></li>
+        </ul>
+
+        <button id="menu-btn" type="button" class="lg:hidden p-2 rounded-lg text-stone-600 hover:bg-stone-100 transition-colors" aria-label="Menü">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="lg:hidden hidden pb-4 border-t border-stone-200 max-h-[80vh] overflow-y-auto bg-white">
+        <ul class="flex flex-col gap-0.5 pt-2">
+          <li><a href="#news" class="mobile-link block px-4 py-2.5 text-sm text-stone-700 rounded-lg hover:bg-stone-50">News</a></li>
+          <li><a href="#verein" class="mobile-link block px-4 py-2.5 text-sm text-stone-700 rounded-lg hover:bg-stone-50">Verein</a></li>
+          <li><a href="#agenda" class="mobile-link block px-4 py-2.5 text-sm text-stone-700 rounded-lg hover:bg-stone-50">Agenda</a></li>
+          <li><a href="#turniere" class="mobile-link block px-4 py-2.5 text-sm text-stone-700 rounded-lg hover:bg-stone-50">Turniere</a></li>
+          <li><a href="#schachaufgabe" class="mobile-link block px-4 py-2.5 text-sm text-stone-700 rounded-lg hover:bg-stone-50">Schachaufgabe</a></li>
+          <li><a href="#jugend" class="mobile-link block px-4 py-2.5 text-sm text-stone-700 rounded-lg hover:bg-stone-50">Jugend</a></li>
+          <li>
+            <details class="px-2">
+              <summary class="px-2 py-2.5 text-sm font-medium text-forest cursor-pointer rounded-lg hover:bg-stone-50">Links ▾</summary>
+              <div class="pl-4 pb-2 text-sm space-y-3 text-stone-600">
+                <p class="text-xs uppercase text-gold-600 font-semibold pt-2">Verbände</p>
+                <a href="https://www.schach-nsv.ch" target="_blank" class="block ext-link">NSV</a>
+                <a href="https://www.swisschess.ch/" target="_blank" class="block ext-link">Schachbund</a>
+                <p class="text-xs uppercase text-gold-600 font-semibold pt-1">Online</p>
+                <a href="https://lichess.org/team/team-gundeldingen-basel" target="_blank" class="block ext-link">Lichess Team</a>
+                <a href="https://lichess.org/learn#/" target="_blank" class="block ext-link">Schach lernen</a>
+                <a href="https://fritz.chessbase.com/de/Fritz" target="_blank" class="block ext-link">Fritz</a>
+                <a href="https://chessline.io/" target="_blank" class="block ext-link">Chessline</a>
+              </div>
+            </details>
+          </li>
+          <li><a href="#kontakt" class="mobile-link block mx-2 mt-2 px-4 py-2.5 text-sm font-medium text-center text-white bg-forest rounded-lg">Kontakt</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="relative min-h-[min(88vh,820px)] flex flex-col text-white overflow-hidden bg-stone-950">
+      <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div class="absolute inset-0 hero-bg-image"></div>
+        <div class="absolute inset-0 hero-bg-overlay"></div>
+      </div>
+
+      <div class="relative z-10 flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-28 lg:pt-32 pb-10 flex flex-col justify-center">
+        <span class="inline-flex self-start px-4 py-1.5 mb-6 text-[11px] tracking-[0.18em] uppercase border border-white/25 rounded-full text-white/70 bg-white/5 backdrop-blur-sm">Seit Generationen · Gundeli · Basel</span>
+
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.12] max-w-3xl mb-5">
+          <span class="text-gold-400 italic font-normal">Schachverein</span><br>
+          <span class="text-white font-medium">Gundeldingen Basel</span>
+        </h1>
+
+        <p class="text-white/70 text-base sm:text-lg leading-relaxed max-w-xl mb-8">
+          Tradition trifft Moderne – offenes Spielfeld, lebendiger Vereinsgeist
+          und die Faszination des königlichen Spiels im Herzen von Basel.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+          <a href="#verein" class="inline-flex items-center justify-center px-7 py-3 text-sm font-semibold text-stone-900 bg-gold-500 rounded-full hover:bg-gold-400 transition-colors shadow-lg shadow-black/30 no-underline whitespace-nowrap">
+            Spielbetrieb ansehen
+          </a>
+          <a href="https://chat.whatsapp.com/GKrrnNp8Loq5ju8oJojEwe?mode=ac_t" target="_blank" rel="noopener"
+             class="inline-flex flex-row items-center justify-center gap-2 px-7 py-3 text-sm font-medium text-white border border-white/35 rounded-full hover:bg-white/10 hover:border-white/55 transition-colors no-underline whitespace-nowrap">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp-Gruppe
+          </a>
+        </div>
+      </div>
+
+      <div class="relative z-10 border-t border-white/10 bg-stone-950/40 backdrop-blur-[2px]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 max-w-4xl">
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl text-gold-400">~45</p>
+              <p class="text-[11px] sm:text-xs uppercase tracking-wider text-white/40 mt-1">Mitglieder</p>
+              <p class="text-[10px] sm:text-[11px] text-white/35 mt-0.5 leading-snug">26 SSB-lizenziert</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl text-gold-400">1948</p>
+              <p class="text-[11px] sm:text-xs uppercase tracking-wider text-white/40 mt-1">Gegründet</p>
+              <p class="text-[10px] sm:text-[11px] text-white/35 mt-0.5">17. Januar</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl text-gold-400">Mo</p>
+              <p class="text-[11px] sm:text-xs uppercase tracking-wider text-white/40 mt-1">Spieltag 19:15</p>
+            </div>
+            <div>
+              <p class="font-serif text-2xl sm:text-3xl text-gold-400">2.</p>
+              <p class="text-[11px] sm:text-xs uppercase tracking-wider text-white/40 mt-1">Liga NMM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spiellokal -->
+    <section class="section-light px-4 sm:px-6 lg:px-8 py-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="tile p-6 lg:p-8">
+          <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+            <div class="border-l-2 border-l-gold-500 pl-4 sm:pl-5">
+              <p class="section-label mb-2">Spiellokal &amp; Zeiten</p>
+              <p class="font-serif text-2xl sm:text-3xl text-strong mb-2">Jeden Montag ab 19:15 Uhr</p>
+              <p class="text-muted">L'esprit · Laufenstr. 46, 4053 Basel</p>
+              <p class="text-sm text-faint mt-2">Tram 15/16 Heiliggeistkirche · <a href="https://www.svgundeldingen.ch/bilder/stadtplan_esprit.jpg" target="_blank" rel="noopener" class="ext-link">Stadtplan</a></p>
+            </div>
+            <div class="relative overflow-hidden rounded-xl border border-stone-200 bg-stone-100 aspect-[4/3] lg:aspect-auto lg:min-h-[220px]">
+              <iframe
+                title="Karte: Laufenstrasse 46, Basel"
+                class="absolute inset-0 w-full h-full grayscale-[30%] contrast-[1.05] opacity-90 hover:opacity-100 transition-opacity"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=47.5407553,7.5985332&amp;hl=de&amp;z=17&amp;output=embed">
+              </iframe>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=47.5407553,7.5985332"
+                 target="_blank" rel="noopener"
+                 class="absolute bottom-2 right-2 px-2.5 py-1 text-[10px] uppercase tracking-wider bg-white/95 text-gold-600 border border-stone-200 rounded-md hover:bg-stone-50 transition-colors no-underline shadow-sm">
+                Maps öffnen
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news" class="section-dark py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="tile p-6 sm:p-8 lg:p-10">
+          <div class="border-l-2 border-l-gold-500 pl-4 sm:pl-5 mb-8">
+            <p class="section-label mb-1">Aktuelles</p>
+            <h2 class="section-title">News</h2>
+          </div>
+
+          <div class="space-y-3" id="news-list">
+            <article class="card p-5 hover:border-white/20 transition-colors"><time class="text-xs text-gold-400 font-medium">2. Juni 2026</time><p class="mt-1 text-muted">Gundeldingen verliert die <a href="#turniere" class="ext-link">4. Runde SMM</a> gegen Birseck II mit 2,5 : 3,5.</p></article>
+            <article class="card p-5 hover:border-white/20 transition-colors"><time class="text-xs text-gold-400 font-medium">4. Mai 2026</time><p class="mt-1 text-muted">Gundeldingen gewinnt die <a href="#turniere" class="ext-link">3. Runde SMM</a> gegen Sorab II mit 3,5 : 2,5.</p></article>
+            <article class="card p-5 hover:border-white/20 transition-colors"><time class="text-xs text-gold-400 font-medium">23. März 2026</time><p class="mt-1 text-muted">Carl von Burg gewinnt die Vereinsmeisterschaft 2025/26!</p><a href="https://docs.google.com/document/d/1H_o1PSxhrMMjzhyX1-xAVbW0X5maEetkwedcaVSN9D0/edit?usp=sharing" target="_blank" class="ext-link text-sm">Paarungen / Rangliste</a></article>
+            <article class="card p-5 hover:border-white/20 transition-colors"><time class="text-xs text-gold-400 font-medium">1. Jan. 2026</time><p class="mt-1 text-muted">Np21 gewinnt das Neujahrsblitz auf Lichess.</p><a href="https://lichess.org/tournament/HptzcGFc" target="_blank" class="ext-link text-sm">Rangliste</a></article>
+          </div>
+          <details class="mt-4">
+            <summary class="text-sm text-gold-400 font-medium cursor-pointer hover:text-gold-300 px-1">Weitere News anzeigen</summary>
+            <div class="space-y-3 mt-3">
+              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">26. Aug. – 25. Nov. 2026</time><p class="mt-1 text-strong font-medium">NEM 2026 in Therwil</p><a href="https://www.sctherwil.ch/turniere/turniere-nordwestschweiz/nem-2026.html" target="_blank" class="ext-link text-sm">Ausschreibung</a></article>
+              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">13. April 2026</time><p class="mt-1 text-muted">SMM 2. Runde verloren gegen Trümmerfeld II (1:5).</p></article>
+              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">5. / 2. Feb. 2026</time><p class="mt-1 text-muted">NMM 5. Runde: Gundeldingen III vs. Riehen II; Gundeldingen I vs. BSG (3:3).</p></article>
+              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">21. Jan. – 10. Juni 2026</time><p class="mt-1 text-strong font-medium">REM 2026 in Riehen</p><a href="https://s2.chess-results.com/tnr1297017.aspx?lan=0&art=2&rd=1&SNode=S0" target="_blank" class="ext-link text-sm">Paarungen</a></article>
+              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">16. Nov. 2025</time><p class="mt-1 text-muted">Schachtag 2025: Riehen gewinnt, Gundeldingen Rang 7.</p></article>
+              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">29. Sept. 2025</time><p class="mt-1 text-muted">Carl gewinnt das Blitzturnier vor Guy und Günther.</p></article>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- VEREIN -->
+    <section id="verein" class="section-light py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="tile p-6 sm:p-8 lg:p-10">
+        <div class="mb-8 border-l-2 border-l-gold-500 pl-4 sm:pl-5">
+          <p class="section-label mb-1">Der Verein</p>
+          <h2 class="section-title">Verein &amp; Spielbetrieb</h2>
+          <p class="section-sub">Mitgliedschaft und Aktivitäten</p>
+        </div>
+
+        <div class="mb-8">
+          <p class="section-label mb-2">Über uns</p>
+          <h3 class="font-serif text-2xl sm:text-3xl text-strong mb-4">Schach mitten im Gundeli</h3>
+          <p class="text-muted leading-relaxed max-w-3xl">
+            Der Schachverein Gundeldingen ist ein lebendiger Klub im Herzen von Basel. Wir treffen uns
+            jeden Montag zum gemeinsamen Spiel – vom freundschaftlichen Match bis zur ernsthaften
+            Wettkampfpartie. Bei uns sind alle willkommen, egal ob du gerade die Regeln lernst oder
+            schon Turniererfahrung mitbringst.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="card p-6">
+            <p class="section-label mb-3">Auf einen Blick</p>
+            <ul class="text-sm text-muted space-y-2">
+              <li><strong class="text-strong">Rund 45 Mitglieder</strong> (26 SSB-lizenziert)</li>
+              <li>Gegründet 17. Januar 1948</li>
+              <li>Spielabend: Montag 19:30 Uhr</li>
+              <li>Laufenstr. 46, 4053 Basel</li>
+              <li>Tram 15/16 Heiliggeistkirche</li>
+            </ul>
+          </div>
+          <div class="card p-6">
+            <p class="section-label mb-3">Mitgliedschaft</p>
+            <p class="text-sm mb-2 text-muted">Beitrag <strong class="text-strong">Fr. 80.-</strong> (Fr. 60.-) / Jahr + SSB Fr. 75.-</p>
+            <p class="text-xs font-mono text-faint mb-3">IBAN CH39 0900 0000 6013 0283 2</p>
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+              <a href="https://www.svgundeldingen.ch/fs_verein/Einzahlungsschein.pdf" target="_blank" class="ext-link">Einzahlungsschein</a>
+              <a href="https://www.svgundeldingen.ch/fs_verein/statuten.pdf" target="_blank" class="ext-link">Statuten</a>
+              <a href="https://www.svgundeldingen.ch/fs_verein/passwort/weiterleitung.htm" target="_blank" class="ext-link">Mitgliederbereich</a>
+            </div>
+          </div>
+        </div>
+        <div class="card p-6 mt-5">
+          <p class="section-label mb-3">Aktivitäten</p>
+          <p class="text-sm text-muted leading-relaxed">Vereinsmeisterschaft · Vereinscup / Gundelicup · Blitz &amp; Schnellschach · Simultan · NMM &amp; SMM · Schachtag · Freundschaftsspiele</p>
+        </div>
+
+        <a href="https://chessline.io/de/" target="_blank" rel="noopener"
+           class="card p-6 mt-5 group block no-underline hover:border-gold-500/40 transition-all">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
+            <img src="Ohne Hintergrund.png" alt="ChessLine – Dein persönlicher KI-Schachcoach" class="h-14 sm:h-16 w-auto object-contain shrink-0">
+            <div class="flex-1 min-w-0">
+              <p class="section-label mb-2">Kooperationspartner</p>
+              <h3 class="font-serif text-xl text-strong group-hover:text-gold-600 transition-colors mb-2">ChessLine</h3>
+              <p class="text-sm text-muted leading-relaxed">
+                <strong class="text-strong">ChessLine</strong> ist der persönliche KI-Schachcoach – von Schachspielern für Schachspieler.
+                Die Gründer <strong class="text-strong">Carl von Burg</strong> und <strong class="text-strong">Stefan Rau</strong> spielen aktiv beim SV Gundeldingen.
+              </p>
+              <span class="mt-3 inline-block text-sm font-medium text-gold-600 group-hover:text-gold-500 transition-colors">chessline.io →</span>
+            </div>
+          </div>
+        </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGENDA -->
+    <section id="agenda" class="section-dark py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="tile p-6 sm:p-8 lg:p-10">
+          <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+            <div class="border-l-2 border-l-gold-500 pl-4 sm:pl-5">
+              <p class="section-label mb-1">Termine</p>
+              <h2 class="section-title">Agenda</h2>
+              <p class="section-sub">Montag 19:30 Uhr · Laufenstr. 46</p>
+            </div>
+            <button type="button" onclick="window.print()" class="no-print btn-ghost inline-flex items-center text-xs px-4 py-2">Drucken</button>
+          </div>
+          <div class="space-y-2" id="agenda-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TURNIERE -->
+    <section id="turniere" class="section-light py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+        <div class="mb-8 border-l-2 border-l-gold-500 pl-4 sm:pl-5">
+          <p class="section-label mb-1">Wettkampf</p>
+          <h2 class="section-title">Turniere</h2>
+          <p class="section-sub">Mannschaftsmeisterschaften &amp; Vereinsturniere</p>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button type="button" class="tab-btn px-4 py-2 text-xs font-medium" data-tab="nmm">NMM</button>
+          <button type="button" class="tab-btn px-4 py-2 text-xs font-medium" data-tab="smm">SMM</button>
+          <button type="button" class="tab-btn px-4 py-2 text-xs font-medium" data-tab="vm">VM</button>
+          <button type="button" class="tab-btn px-4 py-2 text-xs font-medium" data-tab="blitz">Blitz</button>
+        </div>
+
+        <div id="tab-nmm" class="tab-panel tile p-6 overflow-x-auto">
+          <h3 class="font-serif text-lg text-gold-600 mb-4">NMM 2025/26</h3>
+          <table class="w-full text-sm min-w-[400px]"><tbody class="text-muted">
+            <tr class="border-b border-stone-200"><td class="py-2 font-medium text-strong" colspan="4">Gundeldingen 1 (2. Liga)</td></tr>
+            <tr class="border-b border-stone-100"><td class="py-1.5">18.11.25</td><td>Birseck 1</td><td>1–5</td><td>Gundeldingen 1</td></tr>
+            <tr class="border-b border-stone-100"><td class="py-1.5">2.2.26</td><td>Gundeldingen 1</td><td>3–3</td><td>BSG</td></tr>
+          </tbody></table>
+          <a href="https://www.schach-nsv.ch/turniere/nmm/resultate/?gruppe=2&runde=5&Jahr=2025" target="_blank" class="ext-link text-sm mt-4 inline-block">Alle Resultate →</a>
+        </div>
+        <div id="tab-smm" class="tab-panel tile p-6 hidden overflow-x-auto">
+          <h3 class="font-serif text-lg text-gold-600 mb-4">SMM 2026 – Gundeldingen 1</h3>
+          <table class="w-full text-sm"><tbody class="text-muted">
+            <tr class="border-b border-stone-100"><td class="py-1.5 w-24">4. Mai</td><td>Gundeldingen</td><td>3,5–2,5</td><td>Sorab 2</td></tr>
+            <tr class="border-b border-stone-100"><td class="py-1.5">2. Juni</td><td>Birseck 2</td><td>3,5–2,5</td><td>Gundeldingen</td></tr>
+          </tbody></table>
+          <a href="https://www.swisschess.ch/smm.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNiZhbGlnYT01JmFncnVwcGU9NTA5JmFyb3VuZD00" target="_blank" class="ext-link text-sm mt-4 inline-block">Rangliste →</a>
+        </div>
+        <div id="tab-vm" class="tab-panel tile p-6 hidden">
+          <p class="text-muted mb-3">Sieger 2025/26: <strong class="text-strong">Carl von Burg</strong></p>
+          <a href="https://docs.google.com/document/d/1H_o1PSxhrMMjzhyX1-xAVbW0X5maEetkwedcaVSN9D0/edit?usp=sharing" target="_blank" class="ext-link">Paarungen / Rangliste</a>
+        </div>
+        <div id="tab-blitz" class="tab-panel tile p-6 hidden text-sm text-muted space-y-1">
+          <p><strong class="text-strong">29. Sept. 2025</strong> · 7 Runden · 5 Min + 3 Sek.</p>
+          <p>L'Esprit · gratis · Anmeldung via WhatsApp</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHACHAUFGABE -->
+    <section id="schachaufgabe" class="section-dark py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+        <div class="mb-8 border-l-2 border-l-gold-500 pl-4 sm:pl-5">
+          <p class="section-label mb-1">Taktik</p>
+          <h2 class="section-title">Schachaufgabe</h2>
+          <p class="section-sub">Taktik des Tages</p>
+        </div>
+        <div class="tile p-6 flex justify-center max-w-md mx-auto">
+          <iframe title="Schachaufgabe des Tages" width="310" height="341" scrolling="no" frameborder="0" class="max-w-full rounded-lg" src="https://www.shredderchess.com/online/playshredder/gdailytactics.php?mylang=de&mysize=32"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Online spielen -->
+    <section id="spielen" class="section-light py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <a href="https://lichess.org/team/team-gundeldingen-basel" target="_blank" rel="noopener"
+             class="tile p-6 group hover:border-gold-500/40 transition-all no-underline">
+            <span class="badge-pill mb-3">Online</span>
+            <h3 class="font-serif text-xl text-strong group-hover:text-gold-600 transition-colors">Schach spielen</h3>
+            <p class="text-sm text-muted mt-2">Team Gundeldingen auf Lichess – Partien, Turniere, Training</p>
+            <span class="mt-4 inline-block text-sm font-medium text-gold-600 group-hover:text-gold-500 transition-colors">Zum Lichess-Team →</span>
+          </a>
+
+          <a href="https://fritz.chessbase.com/de/Fritz" target="_blank" rel="noopener"
+             class="tile p-6 group hover:border-gold-500/40 transition-all no-underline">
+            <span class="badge-pill mb-3">Engine</span>
+            <h3 class="font-serif text-xl text-strong group-hover:text-gold-600 transition-colors">Gegen Fritz spielen</h3>
+            <p class="text-sm text-muted mt-2">ChessBase-Engine im Browser – kostenlos und sofort</p>
+            <span class="mt-4 inline-block text-sm font-medium text-gold-600 group-hover:text-gold-500 transition-colors">Partie starten →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- JUGEND -->
+    <section id="jugend" class="section-dark py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-8 border-l-2 border-l-gold-500 pl-4 sm:pl-5">
+          <p class="section-label mb-1">Nachwuchs</p>
+          <h2 class="section-title">Jugend &amp; Schachkurs</h2>
+        </div>
+        <div class="tile p-6 max-w-xl">
+          <p class="section-label mb-3">Schachkurs</p>
+          <p class="text-sm text-faint mb-4">Kinder &amp; Jugendliche 6–16 Jahre</p>
+          <dl class="text-sm text-muted space-y-3">
+            <div><dt class="section-label !tracking-wider mb-0.5">Termin</dt><dd class="text-strong">10. Aug. – 14. Dez. 2026, Mo 18:15–19:00</dd></div>
+            <div><dt class="section-label !tracking-wider mb-0.5">Kosten</dt><dd class="text-strong">Fr. 90.- inkl. Material</dd></div>
+            <div><dt class="section-label !tracking-wider mb-0.5">Anmeldung</dt><dd class="text-strong">Peter Zobrist · 061 361 75 43</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="section-light py-16 px-4 sm:px-6 lg:px-8 pb-24">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-8 border-l-2 border-l-gold-500 pl-4 sm:pl-5">
+          <p class="section-label mb-1">Vorstand</p>
+          <h2 class="section-title">Kontakt</h2>
+        </div>
+        <div class="tile overflow-x-auto">
+          <table class="w-full text-sm min-w-[500px]">
+            <thead><tr class="table-head text-left section-label !text-[10px]"><th class="p-3 font-medium">Funktion</th><th class="p-3 font-medium">Name</th><th class="p-3 font-medium">Tel.</th><th class="p-3 font-medium">E-Mail</th></tr></thead>
+            <tbody>
+              <tr class="table-row border-t"><td class="p-3">Präsident</td><td class="p-3">Peter Zobrist</td><td class="p-3">061 361 75 43</td><td class="p-3">peter.zobrist (at) yahoo.de</td></tr>
+              <tr class="table-row border-t"><td class="p-3">Kassier / Homepage</td><td class="p-3">Kurt Notz</td><td class="p-3">061 681 74 09</td><td class="p-3">kurt_notz (at) yahoo.de</td></tr>
+              <tr class="table-row border-t"><td class="p-3">Spielleitung</td><td class="p-3">Martin Spichty</td><td class="p-3">078 694 30 31</td><td class="p-3">martin.spichty (at) gmail.com</td></tr>
+              <tr class="table-row border-t"><td class="p-3">Marketing</td><td class="p-3">Stefan Rau</td><td class="p-3">079 964 87 23</td><td class="p-3">stefan.andreas.rau (at) outlook.com</td></tr>
+              <tr class="table-row border-t"><td class="p-3">Material</td><td class="p-3">Christoph Misteli</td><td class="p-3">061 332 19 62</td><td class="p-3">—</td></tr>
+              <tr class="table-row border-t"><td class="p-3">Aktuar</td><td class="p-3">Hanspeter Gratwohl</td><td class="p-3">061 601 94 91</td><td class="p-3">hanspeter_gratwohl (at) yahoo.de</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section-dark py-10 px-4 text-center text-sm text-faint">
+    <img src="signet.gif" alt="" class="h-10 mx-auto mb-3 opacity-60">
+    <p class="font-serif text-muted">&copy; 2026 Schachverein Gundeldingen Basel</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }));
+
+    const linksBtn = document.getElementById('links-dropdown-btn');
+    const linksDrop = document.getElementById('links-dropdown');
+    const linksChevron = document.getElementById('links-chevron');
+    linksBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = linksDrop.classList.toggle('hidden');
+      linksBtn.setAttribute('aria-expanded', String(!open));
+      linksChevron.style.transform = open ? '' : 'rotate(180deg)';
+    });
+    document.addEventListener('click', () => {
+      linksDrop.classList.add('hidden');
+      linksBtn.setAttribute('aria-expanded', 'false');
+      linksChevron.style.transform = '';
+    });
+    linksDrop.addEventListener('click', e => e.stopPropagation());
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('tab-btn-active'));
+        btn.classList.add('tab-btn-active');
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        document.getElementById('tab-' + btn.dataset.tab).classList.remove('hidden');
+      });
+    });
+    document.querySelector('.tab-btn[data-tab="nmm"]').classList.add('tab-btn-active');
+
+    const agendaData = [
+      { month: 'Juni 2026', events: [['1. Juni','Freier Spielabend'],['2. Juni','SMM 4. Runde'],['15. Juni','SMM 5. Runde'],['22. Juni','Mitgliederversammlung'],['25. Juni','Blitzturnier Basel']]},
+      { month: 'Juli 2026', events: [['—','Sommerferien – freier Spielbetrieb'],['11.–19. Juli','SEM Grächen']]},
+      { month: 'Aug. – Sept. 2026', events: [['10. Aug.','Schachkurs-Start'],['17. Aug.','SMM 6. Runde'],['28. Sept.','Blitzturnier'],['21. Sept.','VM 1. Runde']]},
+      { month: 'Okt. – Dez. 2026', events: [['20. Okt.','VM 2. Runde'],['17. Nov.','NMM 1. Runde'],['15. Dez.','NMM 2. Runde'],['26.–30. Dez.','Christmas Festival Basel']]},
+      { month: 'Jan. – März 2027', events: [['1. Jan.','Neujahrsblitz online'],['12. Jan.','NMM 3. Runde'],['9. März','SMM 1. Runde'],['27.–29. März','Spring Open Basel']]},
+      { month: 'Apr. – Mai 2027', events: [['13. April','SMM 2. Runde'],['4. Mai','SMM 3. Runde'],['14.–17. Mai','Bundesturnier Basel']]},
+    ];
+    const agendaEl = document.getElementById('agenda-list');
+    agendaData.forEach(({ month, events }, i) => {
+      const d = document.createElement('details');
+      d.className = 'card group';
+      if (i === 0) d.open = true;
+      d.innerHTML = `<summary class="px-5 py-3.5 flex justify-between font-medium text-sm text-strong cursor-pointer hover:bg-white/5 rounded-xl">${month}<svg class="w-4 h-4 text-faint group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><div class="px-5 pb-4 space-y-2">${events.map(([dt,tx]) => `<div class="flex gap-4 text-sm py-1.5 border-b border-white/5 last:border-0"><span class="text-gold-400 font-medium w-28 shrink-0">${dt}</span><span class="text-muted">${tx}</span></div>`).join('')}</div>`;
+      agendaEl.appendChild(d);
+    });
+  </script>
+</body>
+</html>
