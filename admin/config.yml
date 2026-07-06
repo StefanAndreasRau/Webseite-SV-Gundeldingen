@@ -1,0 +1,127 @@
+locale: de
+
+backend:
+  name: github
+  repo: StefanAndreasRau/Webseite-SV-Gundeldingen
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: uploads
+public_folder: /uploads
+
+site_url: https://www.svgundeldingen.ch
+display_url: https://www.svgundeldingen.ch
+logo_url: /signet.gif
+
+slug:
+  encoding: unicode
+  clean_accents: true
+
+collections:
+  - name: inhalte
+    label: Inhalte
+    files:
+      - name: news
+        label: News
+        file: data/news.json
+        fields:
+          - label: News-Einträge
+            name: items
+            widget: list
+            summary: "{{fields.date}} — {{fields.text}}"
+            fields:
+              - { label: Datum, name: date, widget: string, hint: "z.B. 2. Juni 2026" }
+              - { label: Oben anzeigen (max. 4), name: featured, widget: boolean, default: false }
+              - { label: Als Titel hervorheben, name: highlight, widget: boolean, default: false }
+              - label: Text
+                name: text
+                widget: text
+                hint: "Links: [Text](#turniere) oder [Text](https://...)"
+              - { label: Zusatz-Link URL, name: linkUrl, widget: string, required: false }
+              - { label: Zusatz-Link Text, name: linkLabel, widget: string, required: false }
+
+      - name: agenda
+        label: Agenda
+        file: data/agenda.json
+        fields:
+          - label: Monate
+            name: months
+            widget: list
+            summary: "{{fields.month}}"
+            fields:
+              - { label: Monat / Zeitraum, name: month, widget: string }
+              - label: Termine
+                name: events
+                widget: list
+                summary: "{{fields.date}} — {{fields.text}}"
+                fields:
+                  - { label: Datum, name: date, widget: string }
+                  - { label: Beschreibung, name: text, widget: string }
+
+      - name: results
+        label: Turnier-Resultate
+        file: data/results.json
+        fields:
+          - label: NMM
+            name: nmm
+            widget: object
+            fields:
+              - { label: Titel, name: title, widget: string }
+              - label: Mannschaften
+                name: teams
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: Mannschaft, name: name, widget: string, required: false }
+                  - label: Partien
+                    name: matches
+                    widget: list
+                    summary: "{{fields.date}} {{fields.home}} {{fields.score}} {{fields.away}}"
+                    fields:
+                      - { label: Datum, name: date, widget: string }
+                      - { label: Heim, name: home, widget: string }
+                      - { label: Resultat, name: score, widget: string }
+                      - { label: Auswärts, name: away, widget: string }
+              - { label: Link URL, name: linkUrl, widget: string, required: false }
+              - { label: Link Text, name: linkLabel, widget: string, required: false }
+
+          - label: SMM
+            name: smm
+            widget: object
+            fields:
+              - { label: Titel, name: title, widget: string }
+              - label: Mannschaften
+                name: teams
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: Mannschaft, name: name, widget: string, required: false }
+                  - label: Partien
+                    name: matches
+                    widget: list
+                    summary: "{{fields.date}} {{fields.home}} {{fields.score}} {{fields.away}}"
+                    fields:
+                      - { label: Datum, name: date, widget: string }
+                      - { label: Heim, name: home, widget: string }
+                      - { label: Resultat, name: score, widget: string }
+                      - { label: Auswärts, name: away, widget: string }
+              - { label: Link URL, name: linkUrl, widget: string, required: false }
+              - { label: Link Text, name: linkLabel, widget: string, required: false }
+
+          - label: Vereinsmeisterschaft (VM)
+            name: vm
+            widget: object
+            fields:
+              - { label: Zusammenfassung, name: summary, widget: string }
+              - { label: Link URL, name: linkUrl, widget: string, required: false }
+              - { label: Link Text, name: linkLabel, widget: string, required: false }
+
+          - label: Blitz
+            name: blitz
+            widget: object
+            fields:
+              - label: Zeilen
+                name: lines
+                widget: list
+                field: { label: Zeile, name: line, widget: text }

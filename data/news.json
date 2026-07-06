@@ -1,0 +1,84 @@
+{
+  "items": [
+    {
+      "date": "2. Juni 2026",
+      "featured": true,
+      "highlight": false,
+      "text": "Gundeldingen verliert die [4. Runde SMM](#turniere) gegen Birseck II mit 2,5 : 3,5.",
+      "linkUrl": "",
+      "linkLabel": ""
+    },
+    {
+      "date": "4. Mai 2026",
+      "featured": true,
+      "highlight": false,
+      "text": "Gundeldingen gewinnt die [3. Runde SMM](#turniere) gegen Sorab II mit 3,5 : 2,5.",
+      "linkUrl": "",
+      "linkLabel": ""
+    },
+    {
+      "date": "23. März 2026",
+      "featured": true,
+      "highlight": false,
+      "text": "Carl von Burg gewinnt die Vereinsmeisterschaft 2025/26!",
+      "linkUrl": "https://docs.google.com/document/d/1H_o1PSxhrMMjzhyX1-xAVbW0X5maEetkwedcaVSN9D0/edit?usp=sharing",
+      "linkLabel": "Paarungen / Rangliste"
+    },
+    {
+      "date": "1. Jan. 2026",
+      "featured": true,
+      "highlight": false,
+      "text": "Np21 gewinnt das Neujahrsblitz auf Lichess.",
+      "linkUrl": "https://lichess.org/tournament/HptzcGFc",
+      "linkLabel": "Rangliste"
+    },
+    {
+      "date": "26. Aug. – 25. Nov. 2026",
+      "featured": false,
+      "highlight": true,
+      "text": "NEM 2026 in Therwil",
+      "linkUrl": "https://www.sctherwil.ch/turniere/turniere-nordwestschweiz/nem-2026.html",
+      "linkLabel": "Ausschreibung"
+    },
+    {
+      "date": "13. April 2026",
+      "featured": false,
+      "highlight": false,
+      "text": "SMM 2. Runde verloren gegen Trümmerfeld II (1:5).",
+      "linkUrl": "",
+      "linkLabel": ""
+    },
+    {
+      "date": "5. / 2. Feb. 2026",
+      "featured": false,
+      "highlight": false,
+      "text": "NMM 5. Runde: Gundeldingen III vs. Riehen II; Gundeldingen I vs. BSG (3:3).",
+      "linkUrl": "",
+      "linkLabel": ""
+    },
+    {
+      "date": "21. Jan. – 10. Juni 2026",
+      "featured": false,
+      "highlight": true,
+      "text": "REM 2026 in Riehen",
+      "linkUrl": "https://s2.chess-results.com/tnr1297017.aspx?lan=0&art=2&rd=1&SNode=S0",
+      "linkLabel": "Paarungen"
+    },
+    {
+      "date": "16. Nov. 2025",
+      "featured": false,
+      "highlight": false,
+      "text": "Schachtag 2025: Riehen gewinnt, Gundeldingen Rang 7.",
+      "linkUrl": "",
+      "linkLabel": ""
+    },
+    {
+      "date": "29. Sept. 2025",
+      "featured": false,
+      "highlight": false,
+      "text": "Carl gewinnt das Blitzturnier vor Guy und Günther.",
+      "linkUrl": "",
+      "linkLabel": ""
+    }
+  ]
+}

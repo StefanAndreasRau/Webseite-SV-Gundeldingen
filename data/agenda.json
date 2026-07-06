@@ -1,0 +1,56 @@
+{
+  "months": [
+    {
+      "month": "Juni 2026",
+      "events": [
+        { "date": "1. Juni", "text": "Freier Spielabend" },
+        { "date": "2. Juni", "text": "SMM 4. Runde" },
+        { "date": "15. Juni", "text": "SMM 5. Runde" },
+        { "date": "22. Juni", "text": "Mitgliederversammlung" },
+        { "date": "25. Juni", "text": "Blitzturnier Basel" }
+      ]
+    },
+    {
+      "month": "Juli 2026",
+      "events": [
+        { "date": "—", "text": "Sommerferien – freier Spielbetrieb" },
+        { "date": "11.–19. Juli", "text": "SEM Grächen" }
+      ]
+    },
+    {
+      "month": "Aug. – Sept. 2026",
+      "events": [
+        { "date": "10. Aug.", "text": "Schachkurs-Start" },
+        { "date": "17. Aug.", "text": "SMM 6. Runde" },
+        { "date": "28. Sept.", "text": "Blitzturnier" },
+        { "date": "21. Sept.", "text": "VM 1. Runde" }
+      ]
+    },
+    {
+      "month": "Okt. – Dez. 2026",
+      "events": [
+        { "date": "20. Okt.", "text": "VM 2. Runde" },
+        { "date": "17. Nov.", "text": "NMM 1. Runde" },
+        { "date": "15. Dez.", "text": "NMM 2. Runde" },
+        { "date": "26.–30. Dez.", "text": "Christmas Festival Basel" }
+      ]
+    },
+    {
+      "month": "Jan. – März 2027",
+      "events": [
+        { "date": "1. Jan.", "text": "Neujahrsblitz online" },
+        { "date": "12. Jan.", "text": "NMM 3. Runde" },
+        { "date": "9. März", "text": "SMM 1. Runde" },
+        { "date": "27.–29. März", "text": "Spring Open Basel" }
+      ]
+    },
+    {
+      "month": "Apr. – Mai 2027",
+      "events": [
+        { "date": "13. April", "text": "SMM 2. Runde" },
+        { "date": "4. Mai", "text": "SMM 3. Runde" },
+        { "date": "14.–17. Mai", "text": "Bundesturnier Basel" }
+      ]
+    }
+  ]
+}

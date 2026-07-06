@@ -322,22 +322,10 @@
             <h2 class="section-title">News</h2>
           </div>
 
-          <div class="space-y-3" id="news-list">
-            <article class="card p-5 hover:border-white/20 transition-colors"><time class="text-xs text-gold-400 font-medium">2. Juni 2026</time><p class="mt-1 text-muted">Gundeldingen verliert die <a href="#turniere" class="ext-link">4. Runde SMM</a> gegen Birseck II mit 2,5 : 3,5.</p></article>
-            <article class="card p-5 hover:border-white/20 transition-colors"><time class="text-xs text-gold-400 font-medium">4. Mai 2026</time><p class="mt-1 text-muted">Gundeldingen gewinnt die <a href="#turniere" class="ext-link">3. Runde SMM</a> gegen Sorab II mit 3,5 : 2,5.</p></article>
-            <article class="card p-5 hover:border-white/20 transition-colors"><time class="text-xs text-gold-400 font-medium">23. März 2026</time><p class="mt-1 text-muted">Carl von Burg gewinnt die Vereinsmeisterschaft 2025/26!</p><a href="https://docs.google.com/document/d/1H_o1PSxhrMMjzhyX1-xAVbW0X5maEetkwedcaVSN9D0/edit?usp=sharing" target="_blank" class="ext-link text-sm">Paarungen / Rangliste</a></article>
-            <article class="card p-5 hover:border-white/20 transition-colors"><time class="text-xs text-gold-400 font-medium">1. Jan. 2026</time><p class="mt-1 text-muted">Np21 gewinnt das Neujahrsblitz auf Lichess.</p><a href="https://lichess.org/tournament/HptzcGFc" target="_blank" class="ext-link text-sm">Rangliste</a></article>
-          </div>
-          <details class="mt-4">
+          <div class="space-y-3" id="news-list"></div>
+          <details class="mt-4" id="news-more-wrap">
             <summary class="text-sm text-gold-400 font-medium cursor-pointer hover:text-gold-300 px-1">Weitere News anzeigen</summary>
-            <div class="space-y-3 mt-3">
-              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">26. Aug. – 25. Nov. 2026</time><p class="mt-1 text-strong font-medium">NEM 2026 in Therwil</p><a href="https://www.sctherwil.ch/turniere/turniere-nordwestschweiz/nem-2026.html" target="_blank" class="ext-link text-sm">Ausschreibung</a></article>
-              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">13. April 2026</time><p class="mt-1 text-muted">SMM 2. Runde verloren gegen Trümmerfeld II (1:5).</p></article>
-              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">5. / 2. Feb. 2026</time><p class="mt-1 text-muted">NMM 5. Runde: Gundeldingen III vs. Riehen II; Gundeldingen I vs. BSG (3:3).</p></article>
-              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">21. Jan. – 10. Juni 2026</time><p class="mt-1 text-strong font-medium">REM 2026 in Riehen</p><a href="https://s2.chess-results.com/tnr1297017.aspx?lan=0&art=2&rd=1&SNode=S0" target="_blank" class="ext-link text-sm">Paarungen</a></article>
-              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">16. Nov. 2025</time><p class="mt-1 text-muted">Schachtag 2025: Riehen gewinnt, Gundeldingen Rang 7.</p></article>
-              <article class="card p-5"><time class="text-xs text-gold-400 font-medium">29. Sept. 2025</time><p class="mt-1 text-muted">Carl gewinnt das Blitzturnier vor Guy und Günther.</p></article>
-            </div>
+            <div class="space-y-3 mt-3" id="news-more"></div>
           </details>
         </div>
       </div>
@@ -443,29 +431,21 @@
         </div>
 
         <div id="tab-nmm" class="tab-panel tile p-6 overflow-x-auto">
-          <h3 class="font-serif text-lg text-gold-600 mb-4">NMM 2025/26</h3>
-          <table class="w-full text-sm min-w-[400px]"><tbody class="text-muted">
-            <tr class="border-b border-stone-200"><td class="py-2 font-medium text-strong" colspan="4">Gundeldingen 1 (2. Liga)</td></tr>
-            <tr class="border-b border-stone-100"><td class="py-1.5">18.11.25</td><td>Birseck 1</td><td>1–5</td><td>Gundeldingen 1</td></tr>
-            <tr class="border-b border-stone-100"><td class="py-1.5">2.2.26</td><td>Gundeldingen 1</td><td>3–3</td><td>BSG</td></tr>
-          </tbody></table>
-          <a href="https://www.schach-nsv.ch/turniere/nmm/resultate/?gruppe=2&runde=5&Jahr=2025" target="_blank" class="ext-link text-sm mt-4 inline-block">Alle Resultate →</a>
+          <h3 id="tab-nmm-title" class="font-serif text-lg text-gold-600 mb-4">NMM 2025/26</h3>
+          <table class="w-full text-sm min-w-[400px]"><tbody id="tab-nmm-body" class="text-muted"></tbody></table>
+          <a id="tab-nmm-link" href="#" target="_blank" rel="noopener" class="ext-link text-sm mt-4 inline-block">Alle Resultate →</a>
         </div>
         <div id="tab-smm" class="tab-panel tile p-6 hidden overflow-x-auto">
-          <h3 class="font-serif text-lg text-gold-600 mb-4">SMM 2026 – Gundeldingen 1</h3>
-          <table class="w-full text-sm"><tbody class="text-muted">
-            <tr class="border-b border-stone-100"><td class="py-1.5 w-24">4. Mai</td><td>Gundeldingen</td><td>3,5–2,5</td><td>Sorab 2</td></tr>
-            <tr class="border-b border-stone-100"><td class="py-1.5">2. Juni</td><td>Birseck 2</td><td>3,5–2,5</td><td>Gundeldingen</td></tr>
-          </tbody></table>
-          <a href="https://www.swisschess.ch/smm.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNiZhbGlnYT01JmFncnVwcGU9NTA5JmFyb3VuZD00" target="_blank" class="ext-link text-sm mt-4 inline-block">Rangliste →</a>
+          <h3 id="tab-smm-title" class="font-serif text-lg text-gold-600 mb-4">SMM 2026 – Gundeldingen 1</h3>
+          <table class="w-full text-sm"><tbody id="tab-smm-body" class="text-muted"></tbody></table>
+          <a id="tab-smm-link" href="#" target="_blank" rel="noopener" class="ext-link text-sm mt-4 inline-block">Rangliste →</a>
         </div>
         <div id="tab-vm" class="tab-panel tile p-6 hidden">
-          <p class="text-muted mb-3">Sieger 2025/26: <strong class="text-strong">Carl von Burg</strong></p>
-          <a href="https://docs.google.com/document/d/1H_o1PSxhrMMjzhyX1-xAVbW0X5maEetkwedcaVSN9D0/edit?usp=sharing" target="_blank" class="ext-link">Paarungen / Rangliste</a>
+          <div id="tab-vm-body" class="text-muted mb-3"></div>
+          <a id="tab-vm-link" href="#" target="_blank" rel="noopener" class="ext-link">Paarungen / Rangliste</a>
         </div>
         <div id="tab-blitz" class="tab-panel tile p-6 hidden text-sm text-muted space-y-1">
-          <p><strong class="text-strong">29. Sept. 2025</strong> · 7 Runden · 5 Min + 3 Sek.</p>
-          <p>L'Esprit · gratis · Anmeldung via WhatsApp</p>
+          <div id="tab-blitz-body" class="space-y-1"></div>
         </div>
       </div>
     </section>
@@ -596,23 +576,7 @@
       });
     });
     document.querySelector('.tab-btn[data-tab="nmm"]').classList.add('tab-btn-active');
-
-    const agendaData = [
-      { month: 'Juni 2026', events: [['1. Juni','Freier Spielabend'],['2. Juni','SMM 4. Runde'],['15. Juni','SMM 5. Runde'],['22. Juni','Mitgliederversammlung'],['25. Juni','Blitzturnier Basel']]},
-      { month: 'Juli 2026', events: [['—','Sommerferien – freier Spielbetrieb'],['11.–19. Juli','SEM Grächen']]},
-      { month: 'Aug. – Sept. 2026', events: [['10. Aug.','Schachkurs-Start'],['17. Aug.','SMM 6. Runde'],['28. Sept.','Blitzturnier'],['21. Sept.','VM 1. Runde']]},
-      { month: 'Okt. – Dez. 2026', events: [['20. Okt.','VM 2. Runde'],['17. Nov.','NMM 1. Runde'],['15. Dez.','NMM 2. Runde'],['26.–30. Dez.','Christmas Festival Basel']]},
-      { month: 'Jan. – März 2027', events: [['1. Jan.','Neujahrsblitz online'],['12. Jan.','NMM 3. Runde'],['9. März','SMM 1. Runde'],['27.–29. März','Spring Open Basel']]},
-      { month: 'Apr. – Mai 2027', events: [['13. April','SMM 2. Runde'],['4. Mai','SMM 3. Runde'],['14.–17. Mai','Bundesturnier Basel']]},
-    ];
-    const agendaEl = document.getElementById('agenda-list');
-    agendaData.forEach(({ month, events }, i) => {
-      const d = document.createElement('details');
-      d.className = 'card group';
-      if (i === 0) d.open = true;
-      d.innerHTML = `<summary class="px-5 py-3.5 flex justify-between font-medium text-sm text-strong cursor-pointer hover:bg-white/5 rounded-xl">${month}<svg class="w-4 h-4 text-faint group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><div class="px-5 pb-4 space-y-2">${events.map(([dt,tx]) => `<div class="flex gap-4 text-sm py-1.5 border-b border-white/5 last:border-0"><span class="text-gold-400 font-medium w-28 shrink-0">${dt}</span><span class="text-muted">${tx}</span></div>`).join('')}</div>`;
-      agendaEl.appendChild(d);
-    });
   </script>
+  <script src="js/site-content.js"></script>
 </body>
 </html>

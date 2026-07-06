@@ -1,0 +1,41 @@
+{
+  "nmm": {
+    "title": "NMM 2025/26",
+    "teams": [
+      {
+        "name": "Gundeldingen 1 (2. Liga)",
+        "matches": [
+          { "date": "18.11.25", "home": "Birseck 1", "score": "1–5", "away": "Gundeldingen 1" },
+          { "date": "2.2.26", "home": "Gundeldingen 1", "score": "3–3", "away": "BSG" }
+        ]
+      }
+    ],
+    "linkUrl": "https://www.schach-nsv.ch/turniere/nmm/resultate/?gruppe=2&runde=5&Jahr=2025",
+    "linkLabel": "Alle Resultate →"
+  },
+  "smm": {
+    "title": "SMM 2026 – Gundeldingen 1",
+    "teams": [
+      {
+        "name": "",
+        "matches": [
+          { "date": "4. Mai", "home": "Gundeldingen", "score": "3,5–2,5", "away": "Sorab 2" },
+          { "date": "2. Juni", "home": "Birseck 2", "score": "3,5–2,5", "away": "Gundeldingen" }
+        ]
+      }
+    ],
+    "linkUrl": "https://www.swisschess.ch/smm.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNiZhbGlnYT01JmFncnVwcGU9NTA5JmFyb3VuZD00",
+    "linkLabel": "Rangliste →"
+  },
+  "vm": {
+    "summary": "Sieger 2025/26: Carl von Burg",
+    "linkUrl": "https://docs.google.com/document/d/1H_o1PSxhrMMjzhyX1-xAVbW0X5maEetkwedcaVSN9D0/edit?usp=sharing",
+    "linkLabel": "Paarungen / Rangliste"
+  },
+  "blitz": {
+    "lines": [
+      { "line": "**29. Sept. 2025** · 7 Runden · 5 Min + 3 Sek." },
+      { "line": "L'Esprit · gratis · Anmeldung via WhatsApp" }
+    ]
+  }
+}
