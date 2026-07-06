@@ -1,0 +1,201 @@
+A {
+	font-family : Verdana, Tahoma, Geneva, Arial, Helvetica, sans-serif;
+	text-decoration : none;
+}
+
+A:hover {
+	text-decoration : underline;
+}
+
+A.navnormal {
+	font-size : 8pt;
+	color: #0C3C71;
+	text-decoration : none;
+}
+
+A.navhighlight {
+	font-size : 8pt;
+	color: #0C3C71;
+	text-decoration : none;
+	font-weight: bold;
+}
+
+
+A.link  {
+	font-weight : bold;
+	color: #417DC1;
+}
+
+A.teaser  {
+	font-size : 8pt;
+	font-weight : bold;
+	color: #417DC1;
+}
+
+P  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #000000;
+	font-weight : normal;
+	line-height : 14pt;
+}
+
+P.picture  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #0C3C71;
+	margin-top : 3pt;
+	margin-bottom : 3pt;
+	line-height : 10pt;
+}
+
+P.teaser  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #0C3C71;
+	margin-bottom : 4px;
+	margin-top : 4px;
+	line-height : 12pt;
+}
+
+.heading  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #ffffff;
+	font-weight : bold;
+}
+
+H1  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 32pt;
+	color: #417DC1;
+    margin-top : 0pt;
+	font-weight : normal;
+
+}
+
+
+H2  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+	color: #0C3C71;
+    margin-top : 6pt;
+	font-weight : bold;
+}
+
+H3  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #417DC1;
+	font-weight : bold;
+    margin-top : 0pt;
+	margin-bottom : 3pt;
+}
+
+TD.standardcell  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #0C3C71;
+}
+TD.headercell  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #0C3C71;
+	font-weight: bold;
+}
+
+.normal  {
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #000000;
+}
+
+.small {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #0C3C71;
+}
+
+
+.grey  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #aaaaaa;
+}
+
+
+.highlight {
+	font-weight : bold;
+	font-size: 8pt;
+	font-family : Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	color: #417DC1;
+}
+
+.highlightsmall {
+	font-weight : bold;
+	font-size: 8pt;
+	font-family : Arial, Helvetica, sans-serif;
+	color: #ffffff;
+}
+
+
+.formheader  {
+	font-family : Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #0C3C71;
+	font-weight : bold;
+}
+
+INPUT.search {
+	font-size:8pt;
+	font-family : Tahoma, Arial, Helvetica, sans-serif;
+	background-Color: #DFE6FD;
+	BORDER: #417DC1 1 solid;
+	width : 125px;
+}
+
+P.s2d  {
+	font-family : Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+	color: #417DC1;
+	font-weight : bold;
+	margin-top : 5pt;
+	margin-bottom : 5pt;
+	line-height: 16pt;
+}
+
+P.s2dsmall  {
+	font-family : Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #417DC1;
+	margin-top : 2pt;
+	margin-bottom : 2pt;
+	line-height: 10pt;
+}
+
+
+td.s2d {
+	font-family : Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #000000;
+	font-weight : normal;
+}
+
+INPUT.s2d {
+	font-size:9pt;
+	font-family : Tahoma, Arial, Helvetica, sans-serif;
+}
+
+SELECT.s2d {
+	font-size:9pt;
+	font-family : Tahoma, Arial, Helvetica, sans-serif;
+	width:160px;
+}
+
+a.s2d {
+	font-size:9pt;
+	text-decoration : none;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #417DC1;
+}
