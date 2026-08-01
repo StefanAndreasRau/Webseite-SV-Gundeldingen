@@ -20,13 +20,105 @@
     return html;
   }
 
-  function renderNewsItem(item, interactive) {
+  function renderDetailMarkdown(text) {
+    if (!text) return '';
+    return text.split(/\n\n+/).map((block) => {
+      const trimmed = block.trim();
+      const lines = trimmed.split('\n');
+      if (lines.every((line) => line.startsWith('- '))) {
+        return `<ul class="list-disc pl-5 space-y-0.5 text-sm text-muted">${lines.map((line) =>
+          `<li>${renderInlineMarkdown(line.slice(2))}</li>`
+        ).join('')}</ul>`;
+      }
+      if (lines[0].startsWith('## ')) {
+        const heading = escapeHtml(lines[0].slice(3));
+        const body = lines.slice(1).join(' ').trim();
+        const bodyHtml = body
+          ? `<p class="text-muted text-sm leading-relaxed mt-1">${renderInlineMarkdown(body)}</p>`
+          : '';
+        return `<h3 class="font-medium text-strong text-sm mt-5 mb-1 first:mt-0">${heading}</h3>${bodyHtml}`;
+      }
+      return `<p class="text-muted text-sm leading-relaxed mb-3 last:mb-0">${renderInlineMarkdown(trimmed.replace(/\n/g, ' '))}</p>`;
+    }).join('');
+  }
+
+  let newsPopupEl = null;
+  const newsDetailStore = new Map();
+
+  function ensureNewsPopup() {
+    if (newsPopupEl) return newsPopupEl;
+
+    newsPopupEl = document.createElement('div');
+    newsPopupEl.id = 'news-popup';
+    newsPopupEl.className = 'fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6';
+    newsPopupEl.innerHTML = `
+      <div class="absolute inset-0 bg-black/70" data-news-popup-close></div>
+      <div class="relative w-full max-w-2xl max-h-[min(85vh,720px)] overflow-y-auto card p-6 sm:p-8 section-dark shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="news-popup-title">
+        <button type="button" class="absolute top-4 right-4 text-faint hover:text-strong transition-colors" data-news-popup-close aria-label="Schliessen">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <h2 id="news-popup-title" class="font-serif text-xl sm:text-2xl text-strong pr-8"></h2>
+        <div id="news-popup-body" class="mt-4 space-y-1"></div>
+      </div>
+    `;
+    document.body.appendChild(newsPopupEl);
+
+    newsPopupEl.querySelectorAll('[data-news-popup-close]').forEach((el) => {
+      el.addEventListener('click', closeNewsPopup);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !newsPopupEl.classList.contains('hidden')) closeNewsPopup();
+    });
+
+    return newsPopupEl;
+  }
+
+  function openNewsPopup(title, detail) {
+    const popup = ensureNewsPopup();
+    popup.querySelector('#news-popup-title').textContent = title || 'News';
+    popup.querySelector('#news-popup-body').innerHTML = renderDetailMarkdown(detail);
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNewsPopup() {
+    if (!newsPopupEl) return;
+    newsPopupEl.classList.add('hidden');
+    newsPopupEl.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function bindNewsPopupLinks(container) {
+    if (!container) return;
+    container.querySelectorAll('a[href="#news-popup"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const article = link.closest('[data-news-id]');
+        if (!article) return;
+        const entry = newsDetailStore.get(article.dataset.newsId);
+        if (!entry) return;
+        openNewsPopup(entry.title, entry.detail);
+      });
+    });
+  }
+
+  function renderNewsItem(item, interactive, index) {
     const hover = interactive ? ' hover:border-white/20 transition-colors' : '';
     const textClass = item.highlight ? 'text-strong font-medium' : 'text-muted';
     const link = item.linkUrl && item.linkLabel
       ? `<a href="${escapeHtml(item.linkUrl)}" target="_blank" rel="noopener" class="ext-link text-sm">${escapeHtml(item.linkLabel)}</a>`
       : '';
-    return `<article class="card p-5${hover}"><time class="text-xs text-gold-400 font-medium">${escapeHtml(item.date)}</time><p class="mt-1 ${textClass}">${renderInlineMarkdown(item.text)}</p>${link}</article>`;
+    const popupAttrs = item.detail
+      ? ` data-news-id="${index}"`
+      : '';
+    if (item.detail) {
+      newsDetailStore.set(String(index), {
+        title: item.detailTitle || item.date,
+        detail: item.detail,
+      });
+    }
+    return `<article class="card p-5${hover}"${popupAttrs}><time class="text-xs text-gold-400 font-medium">${escapeHtml(item.date)}</time><p class="mt-1 ${textClass}">${renderInlineMarkdown(item.text)}</p>${link}</article>`;
   }
 
   function renderNews(data) {
@@ -34,17 +126,21 @@
     const moreEl = document.getElementById('news-more');
     if (!featuredEl || !moreEl) return;
 
+    newsDetailStore.clear();
     const items = data.items || [];
     const featured = items.filter((item) => item.featured);
     const more = items.filter((item) => !item.featured);
 
     featuredEl.innerHTML = featured.length
-      ? featured.map((item) => renderNewsItem(item, true)).join('')
+      ? featured.map((item, index) => renderNewsItem(item, true, `f-${index}`)).join('')
       : '<p class="text-muted text-sm">Noch keine News.</p>';
 
     moreEl.innerHTML = more.length
-      ? more.map((item) => renderNewsItem(item, false)).join('')
+      ? more.map((item, index) => renderNewsItem(item, false, `m-${index}`)).join('')
       : '<p class="text-muted text-sm">Keine weiteren Einträge.</p>';
+
+    bindNewsPopupLinks(featuredEl);
+    bindNewsPopupLinks(moreEl);
 
     document.getElementById('news-more-wrap').hidden = more.length === 0;
   }

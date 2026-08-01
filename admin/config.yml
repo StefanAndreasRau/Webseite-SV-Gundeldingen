@@ -40,6 +40,12 @@ collections:
                 hint: "Links: [Text](#turniere) oder [Text](https://...)"
               - { label: Zusatz-Link URL, name: linkUrl, widget: string, required: false }
               - { label: Zusatz-Link Text, name: linkLabel, widget: string, required: false }
+              - { label: Popup-Titel, name: detailTitle, widget: string, required: false, hint: "Für Ausschreibungen mit [Ausschreibung](#news-popup)" }
+              - label: Popup-Inhalt
+                name: detail
+                widget: text
+                required: false
+                hint: "Abschnitte mit ## Überschrift, Listen mit - Punkt. Link im Text: [Ausschreibung](#news-popup)"
 
       - name: agenda
         label: Agenda
