@@ -30,6 +30,7 @@ collections:
             name: items
             widget: list
             summary: "{{fields.date}} — {{fields.text}}"
+            hint: "Neueste Einträge zuerst. Es werden automatisch nur die 3 obersten behalten."
             fields:
               - { label: Datum, name: date, widget: string, hint: "z.B. 2. Juni 2026" }
               - { label: Oben anzeigen (max. 4), name: featured, widget: boolean, default: false }

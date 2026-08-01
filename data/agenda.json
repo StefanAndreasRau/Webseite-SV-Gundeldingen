@@ -1,23 +1,6 @@
 {
   "months": [
     {
-      "month": "Juni 2026",
-      "events": [
-        { "date": "1. Juni", "text": "Freier Spielabend" },
-        { "date": "2. Juni", "text": "SMM 4. Runde" },
-        { "date": "15. Juni", "text": "SMM 5. Runde" },
-        { "date": "22. Juni", "text": "Mitgliederversammlung" },
-        { "date": "25. Juni", "text": "Blitzturnier Basel" }
-      ]
-    },
-    {
-      "month": "Juli 2026",
-      "events": [
-        { "date": "—", "text": "Sommerferien – freier Spielbetrieb" },
-        { "date": "11.–19. Juli", "text": "SEM Grächen" }
-      ]
-    },
-    {
       "month": "Aug. – Sept. 2026",
       "events": [
         { "date": "10. Aug.", "text": "Schachkurs-Start" },
