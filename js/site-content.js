@@ -158,27 +158,17 @@
   }
 
   function renderNews(data) {
-    const featuredEl = document.getElementById('news-list');
-    const moreEl = document.getElementById('news-more');
-    if (!featuredEl || !moreEl) return;
+    const newsEl = document.getElementById('news-list');
+    if (!newsEl) return;
 
     newsDetailStore.clear();
     const items = (data.items || []).slice(0, NEWS_LIMIT);
-    const featured = items.filter((item) => item.featured);
-    const more = items.filter((item) => !item.featured);
 
-    featuredEl.innerHTML = featured.length
-      ? featured.map((item, index) => renderNewsItem(item, true, `f-${index}`)).join('')
+    newsEl.innerHTML = items.length
+      ? items.map((item, index) => renderNewsItem(item, true, `n-${index}`)).join('')
       : '<p class="text-muted text-sm">Noch keine News.</p>';
 
-    moreEl.innerHTML = more.length
-      ? more.map((item, index) => renderNewsItem(item, false, `m-${index}`)).join('')
-      : '<p class="text-muted text-sm">Keine weiteren Einträge.</p>';
-
-    bindNewsPopupLinks(featuredEl);
-    bindNewsPopupLinks(moreEl);
-
-    document.getElementById('news-more-wrap').hidden = more.length === 0;
+    bindNewsPopupLinks(newsEl);
   }
 
   function renderAgenda(data) {
