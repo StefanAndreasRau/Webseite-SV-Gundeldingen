@@ -63,7 +63,7 @@ collections:
                 summary: "{{fields.date}} — {{fields.text}}"
                 fields:
                   - { label: Datum, name: date, widget: string }
-                  - { label: Beschreibung, name: text, widget: string }
+                  - { label: Beschreibung, name: text, widget: string, hint: "Links: [Text](https://...)" }
 
       - name: results
         label: Turnier-Resultate

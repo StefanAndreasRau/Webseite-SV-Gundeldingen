@@ -183,7 +183,7 @@
       const details = document.createElement('details');
       details.className = 'card group';
       if (index === 0) details.open = true;
-      details.innerHTML = `<summary class="px-5 py-3.5 flex justify-between font-medium text-sm text-strong cursor-pointer hover:bg-white/5 rounded-xl">${escapeHtml(month)}<svg class="w-4 h-4 text-faint group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><div class="px-5 pb-4 space-y-2">${(events || []).map(({ date, text }) => `<div class="flex gap-4 text-sm py-1.5 border-b border-white/5 last:border-0"><span class="text-gold-400 font-medium w-28 shrink-0">${escapeHtml(date)}</span><span class="text-muted">${escapeHtml(text)}</span></div>`).join('')}</div>`;
+      details.innerHTML = `<summary class="px-5 py-3.5 flex justify-between font-medium text-sm text-strong cursor-pointer hover:bg-white/5 rounded-xl">${escapeHtml(month)}<svg class="w-4 h-4 text-faint group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></summary><div class="px-5 pb-4 space-y-2">${(events || []).map(({ date, text }) => `<div class="flex gap-4 text-sm py-1.5 border-b border-white/5 last:border-0"><span class="text-gold-400 font-medium w-32 shrink-0">${escapeHtml(date)}</span><span class="text-muted">${renderInlineMarkdown(text)}</span></div>`).join('')}</div>`;
       agendaEl.appendChild(details);
     });
   }

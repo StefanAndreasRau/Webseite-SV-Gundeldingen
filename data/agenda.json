@@ -3,92 +3,47 @@
     {
       "month": "Okt. – Dez. 2026",
       "events": [
-        {
-          "date": "19. Okt.",
-          "text": "VM 2. Runde"
-        },
-        {
-          "date": "9. Nov.",
-          "text": "VM 3. Runde"
-        },
-        {
-          "date": "17. Nov.",
-          "text": "NMM 1. Runde"
-        },
-        {
-          "date": "7. Dez.",
-          "text": "VM 4. Runde"
-        },
-        {
-          "date": "15. Dez.",
-          "text": "NMM 2. Runde"
-        },
-        {
-          "date": "26.–30. Dez.",
-          "text": "Christmas Festival Basel"
-        }
+        { "date": "19. Okt.", "text": "VM 2. Runde" },
+        { "date": "9. Nov.", "text": "VM 3. Runde" },
+        { "date": "Mo 16. Nov.", "text": "NMM 1: Gundeldingen 3 – Süci 1" },
+        { "date": "Di 17. Nov.", "text": "NMM 1: Laufental-Thierstein – Gundeldingen 1" },
+        { "date": "Di 17. Nov.", "text": "NMM 1: Roche 1 – Gundeldingen 2" },
+        { "date": "7. Dez.", "text": "VM 4. Runde" },
+        { "date": "Mo 14. Dez.", "text": "NMM 2: Gundeldingen 1 – spielfrei" },
+        { "date": "Mo 14. Dez.", "text": "NMM 2: Gundeldingen 3 – Sorab 3" },
+        { "date": "Do 17. Dez.", "text": "NMM 2: Novartis 2 – Gundeldingen 2 (19 Uhr)" },
+        { "date": "26.–30. Dez.", "text": "Christmas Festival Basel" }
       ]
     },
     {
       "month": "Jan. – März 2027",
       "events": [
-        {
-          "date": "1. Jan.",
-          "text": "Neujahrsblitz online"
-        },
-        {
-          "date": "12. Jan.",
-          "text": "VM Nachholfrist (Runden 1–4)"
-        },
-        {
-          "date": "12. Jan.",
-          "text": "NMM 3. Runde"
-        },
-        {
-          "date": "18. Jan.",
-          "text": "VM 5. Runde"
-        },
-        {
-          "date": "8. Feb.",
-          "text": "VM 6. Runde"
-        },
-        {
-          "date": "9. März",
-          "text": "VM Nachholfrist (alle Runden)"
-        },
-        {
-          "date": "9. März",
-          "text": "SMM 1. Runde"
-        },
-        {
-          "date": "15. März",
-          "text": "VM 7. Runde"
-        },
-        {
-          "date": "22. März",
-          "text": "VM Entscheidungspartien"
-        },
-        {
-          "date": "27.–29. März",
-          "text": "Spring Open Basel"
-        }
+        { "date": "1. Jan.", "text": "Neujahrsblitz online, 16:30 Uhr. [Turnier auf Lichess](https://lichess.org/tournament/GdtSC4Uo)" },
+        { "date": "Mo 11. Jan.", "text": "NMM 3: Gundeldingen 1 – Riehen 1" },
+        { "date": "Mo 11. Jan.", "text": "NMM 3: Gundeldingen 2 – Therwil 2" },
+        { "date": "12. Jan.", "text": "VM Nachholfrist (Runden 1–4)" },
+        { "date": "Do 14. Jan.", "text": "NMM 3: Therwil 4 – Gundeldingen 3" },
+        { "date": "18. Jan.", "text": "VM 5. Runde" },
+        { "date": "Mo 25. Jan.", "text": "NMM 4: Trümmerfeld 2 – Gundeldingen 1" },
+        { "date": "Mo 25. Jan.", "text": "NMM 4: Gundeldingen 3 – Therwil 3" },
+        { "date": "Di 26. Jan.", "text": "NMM 4: Birseck 1 – Gundeldingen 2" },
+        { "date": "Mo 1. Feb.", "text": "NMM 5: Gundeldingen 1 – BSG" },
+        { "date": "Mo 1. Feb.", "text": "NMM 5: Gundeldingen 2 – Riehen 2" },
+        { "date": "Fr 5. Feb.", "text": "NMM 5: Oplenac Basel 1 – Gundeldingen 3" },
+        { "date": "8. Feb.", "text": "VM 6. Runde" },
+        { "date": "9. März", "text": "VM Nachholfrist (alle Runden)" },
+        { "date": "9. März", "text": "SMM 1. Runde" },
+        { "date": "15. März", "text": "VM 7. Runde" },
+        { "date": "22. März", "text": "VM Entscheidungspartien" },
+        { "date": "27.–29. März", "text": "Spring Open Basel" }
       ]
     },
     {
       "month": "Apr. – Mai 2027",
       "events": [
-        {
-          "date": "13. April",
-          "text": "SMM 2. Runde"
-        },
-        {
-          "date": "4. Mai",
-          "text": "SMM 3. Runde"
-        },
-        {
-          "date": "14.–17. Mai",
-          "text": "Bundesturnier Basel"
-        }
+        { "date": "13. April", "text": "SMM 2. Runde" },
+        { "date": "4. Mai", "text": "SMM 3. Runde" },
+        { "date": "14.–17. Mai", "text": "Bundesturnier Basel" }
       ]
     }
   ]
